@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/fernndo/Documents/NetBeansProjects/Scheduling-Simulation/src/View/VistaPrincipal.java</file>
-            <file>file:/C:/Users/fernndo/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/MyDefaultTableModel.java</file>
-            <file>file:/C:/Users/fernndo/Documents/NetBeansProjects/Scheduling-Simulation/src/Model/Proceso.java</file>
-            <file>file:/C:/Users/fernndo/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/Aplicacion.java</file>
-            <file>file:/C:/Users/fernndo/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/ControladorPrincipal.java</file>
+            <file>file:/C:/Users/rioslal/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/Aplicacion.java</file>
+            <file>file:/C:/Users/rioslal/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/ControladorPrincipal.java</file>
+            <file>file:/C:/Users/rioslal/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/TablaModelo.java</file>
+            <file>file:/C:/Users/rioslal/Documents/NetBeansProjects/Scheduling-Simulation/src/View/VistaPrincipal.java</file>
+            <file>file:/C:/Users/rioslal/Documents/NetBeansProjects/Scheduling-Simulation/src/Controller/Simulador.java</file>
         </group>
     </open-files>
 </project-private>
