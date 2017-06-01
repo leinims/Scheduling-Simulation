@@ -15,17 +15,22 @@ public class TablaModelo extends DefaultTableModel{
     @Override
     public boolean isCellEditable(int fila, int columna)
     {
-        // make read only fields except column 0,13,14
+        
         return columna == 1 || columna == 2 || columna == 3;
     }
    
     @Override
     public void setValueAt(Object Value, int fila, int columna)
     {
+        String valor = (String) Value;
         if (ControladorFunciones.isNumeric((String) Value))
-        {
+        {   
+            if((columna == 2 && (Integer.parseInt(valor) > 0)) || columna != 2){
             super.setValueAt(Value, fila, columna);
+            }
+        
         }
+        
         
     }
     

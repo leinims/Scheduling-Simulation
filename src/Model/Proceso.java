@@ -17,6 +17,44 @@ public class Proceso {
     private int duracion;
     private int prioridad;
     private Color color;
+    private int T; //Tiempo total
+    private int E; //Tiempo de Espera
+    private float P; //Proporcion de Penalización
+    private float R; //Proporcion de Respuesta
+
+    public int getT() {
+        return T;
+    }
+
+    public void setT(int T) {
+        this.T = T;
+    }
+
+    public int getE() {
+        return E;
+    }
+
+    public void setE(int E) {
+        this.E = E;
+    }
+
+    public float getP() {
+        return P;
+    }
+
+    public void setP(float P) {
+        this.P = P;
+    }
+
+    public float getR() {
+        return R;
+    }
+
+    public void setR(float R) {
+        this.R = R;
+    }
+    
+    
 
     public Color getColor() {
         return color;

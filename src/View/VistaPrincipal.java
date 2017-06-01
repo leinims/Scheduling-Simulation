@@ -7,7 +7,7 @@ package View;
 
 /**
  *
- * @author RIOSLAL
+ * @author CLMS
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 
@@ -28,10 +28,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        PanelHerramientas = new javax.swing.JPanel();
-        btnSimular = new javax.swing.JButton();
-        btnAbrir = new javax.swing.JButton();
-        btnGuardar = new javax.swing.JButton();
         PanelProceso = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProcesos = new javax.swing.JTable();
@@ -39,51 +35,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         PanelSimulador = new javax.swing.JPanel();
         PanelRendimiento = new javax.swing.JPanel();
-        panelMetodos = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaRendimiento = new javax.swing.JTable();
+        panelAlgoritmos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtTicks = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        optFIFO = new javax.swing.JRadioButton();
-        optRoundRobin = new javax.swing.JRadioButton();
-        optSPN = new javax.swing.JRadioButton();
+        comboAlgoritmos = new javax.swing.JComboBox<>();
+        btnSimular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        PanelHerramientas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
-        PanelHerramientas.setName("ToolBar"); // NOI18N
-
-        btnSimular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnSimular.setText("Simular");
-
-        btnAbrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnAbrir.setText("Abrir");
-
-        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnGuardar.setText("Guardar");
-
-        javax.swing.GroupLayout PanelHerramientasLayout = new javax.swing.GroupLayout(PanelHerramientas);
-        PanelHerramientas.setLayout(PanelHerramientasLayout);
-        PanelHerramientasLayout.setHorizontalGroup(
-            PanelHerramientasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHerramientasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PanelHerramientasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnSimular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAbrir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        PanelHerramientasLayout.setVerticalGroup(
-            PanelHerramientasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelHerramientasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnSimular)
-                .addGap(18, 18, 18)
-                .addComponent(btnAbrir)
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         PanelProceso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Procesos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
@@ -115,7 +76,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             PanelProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelProcesoLayout.createSequentialGroup()
                 .addGroup(PanelProcesoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelProcesoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAgregar)
@@ -143,28 +104,46 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         PanelSimuladorLayout.setVerticalGroup(
             PanelSimuladorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 241, Short.MAX_VALUE)
+            .addGap(0, 284, Short.MAX_VALUE)
         );
 
         PanelRendimiento.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(null, "Rendimiento", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+
+        tablaRendimiento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaRendimiento);
 
         javax.swing.GroupLayout PanelRendimientoLayout = new javax.swing.GroupLayout(PanelRendimiento);
         PanelRendimiento.setLayout(PanelRendimientoLayout);
         PanelRendimientoLayout.setHorizontalGroup(
             PanelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(PanelRendimientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelRendimientoLayout.setVerticalGroup(
             PanelRendimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 107, Short.MAX_VALUE)
+            .addGroup(PanelRendimientoLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
-        panelMetodos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Métodos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
+        panelAlgoritmos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Algoritmos de Gestión", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 12))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Quantums:");
 
-        txtTicks.setText("0");
+        txtTicks.setText("4");
         txtTicks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTicksActionPerformed(evt);
@@ -173,53 +152,42 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setText("Ticks");
 
-        optFIFO.setText("First In First Out (FIFO)");
-        optFIFO.setToolTipText("");
-        optFIFO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optFIFOActionPerformed(evt);
-            }
-        });
+        btnSimular.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSimular.setText("Simular");
 
-        optRoundRobin.setText("Round Robin");
-
-        optSPN.setText("Shortest Process Next (SPN)");
-
-        javax.swing.GroupLayout panelMetodosLayout = new javax.swing.GroupLayout(panelMetodos);
-        panelMetodos.setLayout(panelMetodosLayout);
-        panelMetodosLayout.setHorizontalGroup(
-            panelMetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMetodosLayout.createSequentialGroup()
+        javax.swing.GroupLayout panelAlgoritmosLayout = new javax.swing.GroupLayout(panelAlgoritmos);
+        panelAlgoritmos.setLayout(panelAlgoritmosLayout);
+        panelAlgoritmosLayout.setHorizontalGroup(
+            panelAlgoritmosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAlgoritmosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelMetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelMetodosLayout.createSequentialGroup()
+                .addGroup(panelAlgoritmosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboAlgoritmos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelAlgoritmosLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtTicks, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelMetodosLayout.createSequentialGroup()
-                        .addGroup(panelMetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(optSPN)
-                            .addComponent(optRoundRobin)
-                            .addComponent(optFIFO))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6)))
                 .addContainerGap())
+            .addGroup(panelAlgoritmosLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(btnSimular, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
-        panelMetodosLayout.setVerticalGroup(
-            panelMetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMetodosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(optFIFO)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(optRoundRobin)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(optSPN)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelMetodosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panelAlgoritmosLayout.setVerticalGroup(
+            panelAlgoritmosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAlgoritmosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(comboAlgoritmos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(panelAlgoritmosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtTicks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
+                .addGap(29, 29, 29)
+                .addComponent(btnSimular)
                 .addContainerGap())
         );
 
@@ -232,12 +200,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(PanelSimulador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelRendimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelHerramientas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(PanelProceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(PanelProceso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelMetodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(panelAlgoritmos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -245,9 +211,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelHerramientas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelProceso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelMetodos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelAlgoritmos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PanelSimulador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -265,10 +230,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void txtTicksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTicksActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTicksActionPerformed
-
-    private void optFIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optFIFOActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_optFIFOActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,24 +267,21 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JPanel PanelHerramientas;
     public javax.swing.JPanel PanelProceso;
     public javax.swing.JPanel PanelRendimiento;
     public javax.swing.JPanel PanelSimulador;
-    public javax.swing.JButton btnAbrir;
     public javax.swing.JButton btnAgregar;
     public javax.swing.JButton btnEliminar;
-    public javax.swing.JButton btnGuardar;
     public javax.swing.JButton btnSimular;
     private javax.swing.ButtonGroup buttonGroup1;
+    public javax.swing.JComboBox<String> comboAlgoritmos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    public javax.swing.JRadioButton optFIFO;
-    public javax.swing.JRadioButton optRoundRobin;
-    public javax.swing.JRadioButton optSPN;
-    public javax.swing.JPanel panelMetodos;
+    private javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JPanel panelAlgoritmos;
     public javax.swing.JTable tablaProcesos;
+    public javax.swing.JTable tablaRendimiento;
     public javax.swing.JTextField txtTicks;
     // End of variables declaration//GEN-END:variables
 }

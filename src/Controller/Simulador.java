@@ -10,7 +10,6 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.util.ArrayList;
-import static javafx.scene.text.Font.font;
 import javax.swing.JPanel;
 
 /**
@@ -44,7 +43,12 @@ public class Simulador {
         grafico.setColor(Color.WHITE);
         //grafico.fillRect(minAncho, minLargo, maxAncho, maxLargo);
         grafico.fillRect(minAncho, minLargo, tamAncho, tamLargo);
+        grafico.setColor(Color.BLACK);
+        grafico.fillRect(0, minLargo, minAncho, tamLargo);
         Lienzo.paintComponents(grafico);
+        
+        
+        
         
         //JOptionPane.showMessageDialog(null, "Prueba");
         
@@ -52,12 +56,19 @@ public class Simulador {
     }
      public void simulaProcesos(ArrayList<Proceso> listaProcesos, int duracionTotal) {
          
-         String tick;
+        String tick;
          
-         Font font = new Font("Arial", 0, 15);
-         grafico.setFont(font);
-         proporcionx = tamAncho/(duracionTotal + 2);
-         proporciony = tamLargo/(listaProcesos.size() + 2);
+        iniciaLienzo();
+                 
+        Font font = new Font("Arial", 0, 15);
+        grafico.setFont(font);
+        proporcionx = tamAncho/(duracionTotal + 2);
+        proporciony = tamLargo/(listaProcesos.size() + 2);
+         
+        String tituloTick = "TICK";
+        grafico.setColor(Color.WHITE);
+        grafico.drawString(tituloTick, (int)(5), (int)(minLargo + proporciony/2 ));
+        
 
 
         // Se crea la línea de Tiempo
@@ -79,8 +90,8 @@ public class Simulador {
              grafico.setColor(proceso.getColor());
              grafico.fillRect((int)(minAncho + proporcionx * inicio) , (int)(minLargo + proporciony * nroProceso), (int)(proporcionx * duracion), (int) proporciony);
              String infProceso = " #" + Integer.toString(nroProceso);
-             //grafico.setColor(Color.BLACK);
-             //grafico.drawString(infProceso, (int)(minAncho + proporcionx *( inicio + duracion)) + 10, (int)(minLargo + proporciony * nroProceso + proporciony/1));
+             grafico.setColor(Color.WHITE);
+             grafico.drawString(infProceso, (int)(5), (int)(minLargo + proporciony * nroProceso + proporciony/2));
         });
          
      }
